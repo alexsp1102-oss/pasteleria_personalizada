@@ -4,4 +4,7 @@ certifi
 python-dotenv
 dj-database-url
 mysqlclient
-
+whitenoise
+pip freeze > requirements.txt
+dj-database-url
+psycopg2-binary
