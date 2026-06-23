@@ -1,0 +1,104 @@
+.hero {
+    text-align: center;
+    background: linear-gradient(135deg, #ff6b6b, #ffd3d3);
+    color: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+}
+
+.productos {
+    margin: 40px auto;
+    text-align: center;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 250px;
+    padding: 15px;
+}
+
+.item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.precio {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.boton {
+    display: inline-block;
+    background-color: #ff6b6b;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background-color: #ff4c4c;
+}
+
+
+body {
+    background-color: #ea899d; /* rosa pastel */
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3 {
+    color: #ff4c8b;
+    text-align: center;
+}
+
+form {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 30px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    margin-top: 15px;
+    background-color: #ff6b9b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ff4c8b;
+}

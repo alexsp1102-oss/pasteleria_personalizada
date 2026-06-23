@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2>Formulario de Cotización</h2>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #da9ca9;
+    }
+    form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        width: 400px;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 4px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    button {
+        margin-top: 15px;
+        background-color: #ff6b6b;
+        color: rgb(5, 243, 187);
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #ff4c4c;
+    }
+</style>
+
+<form method="post">
+    {% csrf_token %}
+    <label>Nombre completo:</label>
+    <input type="text" name="nombre_completo" required>
+
+    <label>Teléfono:</label>
+    <input type="text" name="telefono" required>
+
+    <label>Correo electrónico:</label>
+    <input type="email" name="correo_electronico" required>
+
+    <label>Tipo de evento:</label>
+    <input type="text" name="tipo_evento">
+
+    <label>Fecha del evento:</label>
+    <input type="date" name="fecha_evento">
+
+    <label>Número de personas:</label>
+    <input type="number" name="numero_personas">
+
+    <label>Sabor de interés:</label>
+    <input type="text" name="sabor_interes">
+
+    <label>Tamaño:</label>
+    <input type="text" name="tamano">
+
+    <label>Descripción:</label>
+    <textarea name="descripcion"></textarea>
+
+    <label><input type="checkbox" name="entrega_domicilio"> Entrega a domicilio</label>
+    <label><input type="checkbox" name="acepta_privacidad"> Acepto política de privacidad</label>
+
+    <button type="submit">Enviar</button>
+</form>
+{% endblock %}
