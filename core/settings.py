@@ -26,7 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Seguridad y debug
 SECRET_KEY = "django-insecure-w&@=#f^mjl-z@n0v2%)o^m-tg738)mggb4yi&s)y*o7a%b%)ki"
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pasteleria-personalizada.onrender.com']
+ALLOWED_HOSTS = ['pasteleria-personalizada.onrender.com', 'localhost', '127.0.0.1']
+
+
 
 # Apps instaladas
 INSTALLED_APPS = [
