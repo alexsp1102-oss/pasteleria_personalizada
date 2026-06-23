@@ -3,3 +3,4 @@ Django
 certifi
 python-dotenv
 dj-database-url
+
