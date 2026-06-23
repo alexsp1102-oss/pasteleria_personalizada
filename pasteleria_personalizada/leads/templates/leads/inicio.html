@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<section class="hero">
+    <h2>Bienvenido a Pastelería Personalizada</h2>
+    <p>Diseñamos cualquier idea o cualquier personalizacion, has tus pensamientos realidad .</p>
+</section>
+
+<section class="productos">
+    <h3>Nuestros Productos</h3>
+    <div class="grid">
+        <div class="item">
+            <img src="{% static 'img/torta_chocolate.jpg' %}" alt="Torta de chocolate">
+            <h4>Torta de Chocolate</h4>
+            <p>Decorada con ganache y frutas frescas.</p>
+            <span class="precio">$350 MXN</span>
+        </div>
+        <div class="item">
+            <img src="{% static 'img/cupcakes_rosas.jpg' %}" alt="Cupcakes rosas">
+            <h4>Cupcakes Rosas</h4>
+            <p>Perfectos para eventos románticos o cumpleaños.</p>
+            <span class="precio">$120 MXN (6 piezas)</span>
+        </div>
+        <div class="item">
+            <img src="{% static 'img/brownies.jpg' %}" alt="Brownies">
+            <h4>Brownies</h4>
+            <p>Deliciosos y suaves, con trozos de chocolate.</p>
+            <span class="precio">$90 MXN (4 piezas)</span>
+        </div>
+        <div class="item">
+            <img src="{% static 'img/torta_personalizada.jpg' %}" alt="Torta personalizada">
+            <h4>Torta Personalizada</h4>
+            <p>Diseño exclusivo según tu evento y temática.</p>
+            <span class="precio">Desde $450 MXN</span>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <a href="{% url 'landing' %}" class="boton">Ir a Cotización</a>
+</section>
+{% endblock %}
