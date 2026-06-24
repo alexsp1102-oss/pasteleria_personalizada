@@ -3,18 +3,7 @@ import ssl
 import certifi
 from pathlib import Path
 from dotenv import load_dotenv
-
-#esto es nuevo para el cambio de dominio puede que no sirva 
-import os
 import dj_database_url
-
-DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
-}
-
-
-
-#hata aqui llega lo nuevo 
 
 # Forzar a Python a usar los certificados de certifi globalmente
 os.environ["SSL_CERT_FILE"] = certifi.where()
@@ -29,10 +18,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Seguridad y debug
 SECRET_KEY = "django-insecure-w&@=#f^mjl-z@n0v2%)o^m-tg738)mggb4yi&s)y*o7a%b%)ki"
 DEBUG = True
-ALLOWED_HOSTS = ['pasteleria-personalizada.onrender.com']
-ALLOWED_HOSTS = ['pasteleria-personalizada.onrender.com', 'localhost', '127.0.0.1']
-
-
+ALLOWED_HOSTS = [
+    "pasteleria-personalizada.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 # Apps instaladas
 INSTALLED_APPS = [
@@ -43,11 +33,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "leads",  # <-- tu app
-    "crm",     # nueva app CRM
+    "crm",    # nueva app CRM
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # ← para servir estáticos en Render
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -76,19 +67,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-# Base de datos puede que le falte o se le cambie la contraseña se ya se esta conectando al mysql
-
+# 🔹 Base de datos: ahora solo Postgres vía DATABASE_URL
 DATABASES = {
-    "default": {
-        ,
-        "NAME": "pasteleria_personalizada",
-        "USER": "root",
-        "PASSWORD": "TuNueva",
-        "HOST": "localhost",
-        "PORT": "3306",
-    }
+    "default": dj_database_url.config(default="sqlite:///db.sqlite3")
 }
-
 
 # Validación de contraseñas
 AUTH_PASSWORD_VALIDATORS = [
@@ -107,7 +89,7 @@ USE_TZ = True
 # Archivos estáticos
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # 🔹 Configuración de correo con Gmail
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -117,11 +99,3 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "alex.s.p.11.02@gmail.com"
 EMAIL_HOST_PASSWORD = "pulr algu rroh mxur"  # tu App Password real de Gmail
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
-
-#esto es nuevo para recuperara los datos 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ← esta línea
-    ...
-]
