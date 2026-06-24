@@ -1,9 +1,7 @@
-gunicorn
 Django
-certifi
-python-dotenv
-dj-database-url
-mysqlclient
-whitenoise
+gunicorn
 dj-database-url
 psycopg2-binary
+whitenoise
+python-dotenv
+certifi

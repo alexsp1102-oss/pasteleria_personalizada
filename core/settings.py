@@ -9,8 +9,11 @@ import os
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
+
+
+
 #hata aqui llega lo nuevo 
 
 # Forzar a Python a usar los certificados de certifi globalmente
@@ -77,7 +80,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
+        ,
         "NAME": "pasteleria_personalizada",
         "USER": "root",
         "PASSWORD": "TuNueva",
@@ -104,6 +107,7 @@ USE_TZ = True
 # Archivos estáticos
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # 🔹 Configuración de correo con Gmail
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -113,3 +117,11 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "alex.s.p.11.02@gmail.com"
 EMAIL_HOST_PASSWORD = "pulr algu rroh mxur"  # tu App Password real de Gmail
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+#esto es nuevo para recuperara los datos 
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ← esta línea
+    ...
+]
