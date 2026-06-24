@@ -4,6 +4,11 @@ import certifi
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
+import dj_database_url
+
+DATABASES = {
+    "default": dj_database_url.config(default="sqlite:///db.sqlite3")
+}
 
 # Forzar a Python a usar los certificados de certifi globalmente
 os.environ["SSL_CERT_FILE"] = certifi.where()
